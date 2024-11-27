@@ -1,0 +1,15 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model pizza {
+  pizza_id    Int      @id
+  pizza_name  String?  @db.VarChar(30)
+  pizza_ing   String?  @db.VarChar(100)
+  pizza_price Decimal? @db.Decimal(4, 2)
+}
